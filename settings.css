@@ -1,0 +1,151 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+header {
+    background-color: #222;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 200px; /* Puedes aumentar hasta 300 o más */
+    height: auto;
+    max-height: 150px;
+    margin-right: 20px;
+}
+
+.volver-btn {
+    display: inline-block;
+    margin: 10px 0 20px;
+    background-color: #444;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.volver-btn:hover {
+    background-color: #222;
+}
+
+.settings-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 80vh;
+    padding: 60px 0;
+}
+
+.settings-box {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    text-align: center;
+}
+
+.settings-box h2 {
+    color: #ff6600;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.settings-box h3 {
+    text-align: left;
+    margin-top: 20px;
+    color: #333;
+    font-size: 18px;
+    border-bottom: 2px solid #ff6600;
+    padding-bottom: 5px;
+}
+
+.settings-box label {
+    display: block;
+    text-align: left;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.settings-box input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.settings-box input:focus {
+    border-color: #ff6600;
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 102, 0, 0.5);
+}
+
+.settings-box button {
+    background: linear-gradient(90deg, #ff6600, #e65c00);
+    color: white;
+    padding: 12px;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background 0.3s;
+    margin-top: 20px;
+}
+
+.settings-box button:hover {
+    background: linear-gradient(90deg, #e65c00, #cc5200);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    margin-top: 50px;
+}

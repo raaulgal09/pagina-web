@@ -1,0 +1,326 @@
+/* === Reset general y altura completa === */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* === Estructura del layout === */
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main.contenido-admin {
+    flex: 1;
+    padding: 30px 20px;
+}
+
+/* === Header === */
+header {
+    background-color: #222;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.logo h1 {
+    font-size: 20px;
+}
+
+/* === Navegación === */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 12px;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+}
+
+nav ul li a:hover {
+    background-color: #444;
+}
+
+/* === Sección bienvenida === */
+.bienvenida h2 {
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.bienvenida p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+/* === Botones de acción rápida === */
+.acciones-rapidas {
+    margin-top: 20px;
+}
+
+.botones-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.btn {
+    background-color: #ff6600;
+    color: white;
+    padding: 12px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn:hover {
+    background-color: #e65c00;
+}
+
+/* === Footer fijo abajo === */
+footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 15px 10px;
+    margin-top: auto;
+    font-size: 14px;
+}
+
+/* === Formularios de administración === */
+.formulario-admin {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.formulario-admin input[type="text"],
+.formulario-admin input[type="number"],
+.formulario-admin textarea,
+.formulario-admin select,
+.formulario-admin input[type="file"] {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    resize: vertical;
+}
+
+.formulario-admin label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* === Categorías agrupadas === */
+.categorias-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 5px;
+}
+
+/* === Botón volver === */
+.volver-btn {
+    display: inline-block;
+    margin: 10px 0 20px;
+    background-color: #444;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.volver-btn:hover {
+    background-color: #222;
+}
+
+/* === Tabla de productos === */
+.tabla-contenedor {
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+.tabla-admin {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.tabla-admin th,
+.tabla-admin td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.tabla-admin th {
+    background-color: #222;
+    color: white;
+}
+
+.tabla-admin img {
+    width: 50px;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* === Enlaces de acción === */
+.accion-link {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.accion-link:hover {
+    text-decoration: underline;
+}
+
+.accion-link.eliminar {
+    color: red;
+}
+
+/* === Botón agregar producto === */
+.agregar-btn {
+    margin-left: 10px;
+    background-color: green;
+}
+
+.agregar-btn:hover {
+    background-color: darkgreen;
+}
+.success {
+    text-align: center;
+    color: green;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.error {
+    text-align: center;
+    color: red;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.formulario-admin img {
+    display: block;
+    margin: 10px 0;
+    border-radius: 5px;
+    max-width: 100%;
+}
+
+/* === Tabla reutilizable para pedidos/usuarios/productos === */
+.tabla-contenedor {
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+.tabla-admin {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.tabla-admin th,
+.tabla-admin td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.tabla-admin th {
+    background-color: #222;
+    color: white;
+}
+
+/* === Botón volver === */
+.volver-btn {
+    display: inline-block;
+    margin: 10px 0 20px;
+    background-color: #444;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.volver-btn:hover {
+    background-color: #222;
+}
+
+
+/* === Responsive === */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        padding-top: 10px;
+    }
+
+    .botones-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}

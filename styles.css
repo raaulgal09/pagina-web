@@ -1,0 +1,411 @@
+/* === Estilos generales === */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+header {
+    background-color: #222;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 200px; /* Puedes aumentar hasta 300 o más */
+    height: auto;
+    max-height: 150px;
+    margin-right: 20px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 50%;
+    max-width: 800px;
+    height: 40px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar input {
+    border: none;
+    padding: 10px;
+    width: 100%;
+    font-size: 16px;
+    outline: none;
+}
+
+.search-bar button {
+    border: none;
+    background-color: blue;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.search-bar button img {
+    height: 20px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+nav ul li a img {
+    height: 20px;
+}
+
+.banner {
+    background: url('fondo.webp') no-repeat center center/cover;
+    color: rgb(35, 2, 124);
+    font-weight: bold;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.btn {
+    background-color: #ff6600;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.producto {
+    background: white;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    width: 400px;
+    height: auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.producto img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    border-radius: 5px;
+    background-color: white;
+}
+
+/* === Botones en línea siempre === */
+.botones-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.botones-container button {
+    flex: 1;
+    padding: 10px;
+    background-color: #007bff;;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin: 0;
+}
+
+.botones-container button:hover {
+    background-color: #0056b3;
+}
+
+footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* === Carrusel === */
+.carrusel {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    position: relative;
+}
+
+.carrusel-imagenes {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    height: 100%;
+    scrollbar-width: none; /* Firefox */
+}
+
+.carrusel-imagenes::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+}
+
+.carrusel-imagenes img {
+    flex-shrink: 0;
+    width: 100%;
+    min-width: 100%;
+    height: 100%;
+    object-fit: contain;
+    scroll-snap-align: center;
+}
+
+.carrusel button {
+    display: none; /* Ocultamos las flechas */
+}
+
+/* === Responsivo === */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .search-bar {
+        width: 90%;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .producto {
+        width: 90%;
+    }
+
+    .logo img {
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+      }
+}
+
+/* Estilo general del modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(2px);
+}
+
+/* Caja del modal */
+.modal-content {
+    background-color: #fff;
+    margin: 40px auto;
+    padding: 24px;
+    width: 90%;
+    max-width: 800px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* Botón de cierre */
+.close-modal {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    color: #666;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-modal:hover {
+    color: #000;
+}
+
+/* Títulos y textos */
+.modal-content h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.modal-content p {
+    font-size: 16px;
+    margin: 6px 0;
+    color: #555;
+}
+
+.modal-content.ml-style {
+    padding: 0;
+    max-width: 1000px;
+  }
+  
+  .modal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    padding: 24px;
+  }
+  
+  .modal-images {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .thumbnails {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+    overflow-x: auto;
+  }
+  
+  .thumbnails img {
+    width: 50px;
+    height: 50px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  
+  .main-image img {
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    max-height: 400px;
+    object-fit: contain;
+  }
+  
+  .modal-info {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+  }
+  
+  .modal-info h2 {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+  
+  .stars {
+    color: #f0c14b;
+    margin-bottom: 12px;
+  }
+  
+  .precio-anterior {
+    color: #888;
+    font-size: 16px;
+  }
+  
+  .precio-descuento {
+    font-size: 28px;
+    color: #00a650;
+    font-weight: bold;
+  }
+  
+  .oferta {
+    font-size: 16px;
+    color: #00a650;
+    margin-left: 8px;
+  }
+  
+  .meses, .iva {
+    font-size: 14px;
+    color: #555;
+    margin-top: 4px;
+  }
+  
+  .ver-pagos {
+    display: inline-block;
+    margin-top: 8px;
+    color: #3483fa;
+    font-size: 14px;
+  }
+  
+  .envio-gratis,
+  .retiro-gratis {
+    background-color: #e6f7e6;
+    padding: 8px;
+    border-radius: 6px;
+    margin-top: 12px;
+    font-size: 14px;
+  }
+  
+
+/* Precio destacado */
+#modalPrecio {
+    font-size: 24px;
+    color: #00a650; /* Verde típico de Mercado Libre */
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+/* Carrusel o imagen principal */
+#modalCarrusel img {
+    width: 80%;
+    max-height: 400px;
+    object-fit: cover;
+    margin-bottom: 16px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
