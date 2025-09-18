@@ -150,3 +150,36 @@ footer {
     width: 100%;
     margin-top: 60px;
 }
+
+@media (max-width: 768px) {
+    .auth-box {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .logo img {
+        width: 150px;
+        max-height: 100px;
+        margin-right: 10px;
+    }
+
+    header, footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .auth-container {
+        height: auto;
+        padding: 20px 0;
+    }
+}

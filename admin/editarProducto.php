@@ -52,7 +52,6 @@ if (isset($_POST['actualizar'])) {
     $edicion = $_POST['edicion'];
     $disponibilidad = $_POST['disponibilidad'];
 
-    // ✅ Categorías siempre con 'catalogo'
     $categorias_seleccionadas = $_POST['categorias'] ?? [];
     if (!in_array('catalogo', $categorias_seleccionadas)) {
         $categorias_seleccionadas[] = 'catalogo';
@@ -82,32 +81,30 @@ if (isset($_POST['actualizar'])) {
     );
 
     if ($stmt->execute()) {
-        // 🔁 Eliminar imágenes anteriores
-        $sqlImgs = "SELECT nombre_imagen FROM imagenes_producto WHERE producto_id = ?";
-        $stmtImgs = $conexion->prepare($sqlImgs);
-        $stmtImgs->bind_param("i", $id);
-        $stmtImgs->execute();
-        $resImgs = $stmtImgs->get_result();
-        while ($img = $resImgs->fetch_assoc()) {
-            $file = 'uploads/' . $img['nombre_imagen'];
-            if (file_exists($file)) {
-                unlink($file);
-            }
-        }
-        $stmtImgs->close();
-
-        $stmtDel = $conexion->prepare("DELETE FROM imagenes_producto WHERE producto_id = ?");
-if ($stmtDel) {
-    $stmtDel->bind_param("i", $id);
-    $stmtDel->execute();
-    $stmtDel->close();
-} else {
-    echo "<p class='error'>❌ Error al preparar la eliminación de imágenes: " . $conexion->error . "</p>";
-}
-
-
-        // ✅ Subir nuevas imágenes si hay
+        // ✅ Solo reemplazar imágenes si se subieron nuevas
         if (!empty($_FILES['imagenes']['name'][0])) {
+            // Eliminar imágenes anteriores
+            $sqlImgs = "SELECT nombre_imagen FROM imagenes_producto WHERE producto_id = ?";
+            $stmtImgs = $conexion->prepare($sqlImgs);
+            $stmtImgs->bind_param("i", $id);
+            $stmtImgs->execute();
+            $resImgs = $stmtImgs->get_result();
+            while ($img = $resImgs->fetch_assoc()) {
+                $file = 'uploads/' . $img['nombre_imagen'];
+                if (file_exists($file)) {
+                    unlink($file);
+                }
+            }
+            $stmtImgs->close();
+
+            $stmtDel = $conexion->prepare("DELETE FROM imagenes_producto WHERE producto_id = ?");
+            if ($stmtDel) {
+                $stmtDel->bind_param("i", $id);
+                $stmtDel->execute();
+                $stmtDel->close();
+            }
+
+            // Subir nuevas imágenes
             $directorio = 'uploads/';
             if (!is_dir($directorio)) {
                 mkdir($directorio, 0777, true);
@@ -179,6 +176,25 @@ if ($stmtDel) {
 
     <button class="btn" type="submit" name="actualizar">Actualizar Producto</button>
 </form>
+
+<!-- ✅ Mostrar imágenes actuales -->
+<section style="margin-top: 20px;">
+    <h3>Imágenes actuales:</h3>
+    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <?php
+        $sqlImgs = "SELECT nombre_imagen FROM imagenes_producto WHERE producto_id = ?";
+        $stmtImgs = $conexion->prepare($sqlImgs);
+        $stmtImgs->bind_param("i", $id);
+        $stmtImgs->execute();
+        $resImgs = $stmtImgs->get_result();
+        while ($img = $resImgs->fetch_assoc()) {
+            echo "<img src='uploads/{$img['nombre_imagen']}' alt='' style='width: 100px; height: 100px; object-fit: cover; border: 1px solid #ccc;'>";
+        }
+        $stmtImgs->close();
+        ?>
+    </div>
+</section>
+
 </main>
 
 <footer>
